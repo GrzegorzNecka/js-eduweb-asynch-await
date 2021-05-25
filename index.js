@@ -14,3 +14,5 @@
   const pokemon = await getPokemon(name);
   console.log(pokemon?.name);
 })();
+
+// currying https://eduweb.pl/programowanie-i-www/javascript/asynchronicznosc-w-javascript-krok-po-kroku - 20 minuta
