@@ -8,6 +8,7 @@ let id = document.getElementById('app');
     console.log(data.json());
     id.innerText = JSON.stringify(pokemon.name);
   } catch (err) {
+    id.innerText = 'nie znaleziono';
     console.log(err);
   }
 })();
