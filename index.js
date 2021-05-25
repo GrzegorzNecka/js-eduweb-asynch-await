@@ -1,12 +1,15 @@
-const id = document.getElementById('app');
+let id = document.getElementById('app');
 
 (async () => {
-  const name = 'ditto';
-  const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-  const pokemon = await data.json();
-  console.log(data.json());
-  // console.log(pokemon);
-  id.innerText = JSON.stringify(pokemon.name);
+  try {
+    const name = 'ditto';
+    const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    const pokemon = await data.json();
+    console.log(data.json());
+    id.innerText = JSON.stringify(pokemon.name);
+  } catch (err) {
+    console.log(err);
+  }
 })();
 
 // promisse all
@@ -16,5 +19,10 @@ const id = document.getElementById('app');
     fetch('https://pokeapi.co/api/v2/pokemon/ditto'),
     fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
   ]);
+
+  const pokemons = await arr[1].json();
+
+  id.innerText += JSON.stringify(pokemons.name);
+  console.log('pokemons', pokemons);
   console.log('arr', arr);
 })();
